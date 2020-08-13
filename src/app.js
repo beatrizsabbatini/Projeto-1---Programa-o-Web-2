@@ -1,4 +1,6 @@
 const usersContainer = document.querySelector('ul');
+const errorContainer = document.querySelector('h4');
+
 
 document.querySelector('button').addEventListener('click', () => {
     usersContainer.innerHTML = ''
@@ -6,10 +8,19 @@ document.querySelector('button').addEventListener('click', () => {
 
     if(document.getElementById('search').value == ""){
         document.getElementById('search').focus();
-        alert("Erro! Digite um nome a ser pesquisado!");
+        let error = document.createElement('h4');
+        error.innerHTML = "Erro! Digite o nome a ser pesquisado!";
+        errorContainer.appendChild(error);
+
+      //  alert("Erro! Digite um nome a ser pesquisado!");
     } else if (document.getElementById('search').value.length < 3){
         document.getElementById('search').focus();
-        alert("Erro! Digite um nome de usuário com no mínimo 3 caracteres!");
+        let error = document.createElement('h4');
+        error.innerHTML = "Erro! Digite um nome de usuário com no mínimo 3 caracteres!";
+        errorContainer.appendChild(error);
+        
+        
+        //alert("Erro! Digite um nome de usuário com no mínimo 3 caracteres!");
     }
 
     else{
